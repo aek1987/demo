@@ -20,6 +20,7 @@ stage('build') {
 steps {
 bat 'mvn clean package'
 archiveArtifacts 'target/*.jar'
+}
 
 post {
     /*always {
@@ -41,7 +42,6 @@ post {
     }
 }
 
-}
 }
 
 stage('documentation') {
