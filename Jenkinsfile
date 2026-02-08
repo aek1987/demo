@@ -26,12 +26,8 @@ archiveArtifacts 'target/*.jar'
 stage('documentation') {
 steps {
 bat 'mvn javadoc:javadoc'
-bat '''
-mkdir -p doc
-cp -r target/site/* doc/
-tar -a -c -f doc.zip doc
-'''
-archiveArtifacts artifacts: 'doc.zip'
+bat 'powershell Compress-Archive -Path target/site/* -DestinationPath target/doc.zip'
+archiveArtifacts artifacts: 'target/doc.zip'
 }
 }
 
