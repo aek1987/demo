@@ -21,9 +21,6 @@ steps {
 bat 'mvn clean package'
 archiveArtifacts 'target/*.jar'
 
-}
-}
-
 post {
     /*always {
         echo "Build stage complete"
@@ -42,6 +39,9 @@ post {
                        to: "louniscntsid@gmail.com"
                        )
     }
+}
+
+}
 }
 
 stage('documentation') {
