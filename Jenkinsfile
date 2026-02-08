@@ -29,7 +29,7 @@ bat 'mvn javadoc:javadoc'
 bat '''
 mkdir -p doc
 cp -r target/site/* doc/
-zip -r doc.zip doc
+tar -a -c -f doc.zip doc
 '''
 archiveArtifacts artifacts: 'doc.zip'
 }
