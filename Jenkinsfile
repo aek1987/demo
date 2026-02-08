@@ -3,15 +3,26 @@ pipeline {
 agent any
 stages {
 
-stage('build') {
+stage('init') {
+steps {
+bat 'mvn clean'
+}
+}
 
+stage('test') {
+steps {
+bat 'mvn test'
+archiveArtifacts 'target/surefire-reports/*.xml'
+}
+}
+
+stage('build') {
 steps {
 bat 'mvn clean package'
 archiveArtifacts 'target/*.jar'
-junit 'target/surefire-reports/*.xml'
+}
 }
 
-}
 }
 
 }
