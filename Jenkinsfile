@@ -21,7 +21,7 @@ steps {
 bat 'mvn clean package'
 archiveArtifacts 'target/*.jar'
 
-        emailext(subject: "Build réussi: ",
+        mail(subject: "Build réussi: ",
                 body: "Le build a réussi.",
                 to: "louniscntsid@gmail.com"
                 )
